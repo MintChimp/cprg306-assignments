@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
-    <h1>CPRG 306: Web Development 2 - Assignments</h1>
-    <Link href='/week-2'>
+    <div className="grid grid-rows-[20px_1fr_20px] pl-40 pt-20">
+    <h1 className="text-3xl">CPRG 306: Web Development 2 - Assignments</h1>
+    <Link href='/week-2' className="hover:text-teal-500 hover:underline pt-10 pl-10">
       Week 2
     </Link>
     </div>
