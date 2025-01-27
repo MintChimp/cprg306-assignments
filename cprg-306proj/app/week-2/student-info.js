@@ -7,7 +7,7 @@ const StudentInfo = () => {
         <div>
             <h1>Lochlan Piercey</h1>
             <p>
-                <Link href="https://github.com/MintChimp/cprg306proj.git">
+                <Link href="https://github.com/MintChimp/cprg306-assignments.git">
                     https://github.com
                 </Link>
             </p>
