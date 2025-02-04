@@ -8,6 +8,9 @@ export default function Home() {
     <Link href='/week-2' className="hover:text-teal-500 hover:underline pt-10 pl-10">
       Week 2
     </Link>
+    <Link href='/week-3' className="hover:text-teal-500 hover:underline pl-10">
+      Week 3
+    </Link>
     </div>
     
     /*<div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
