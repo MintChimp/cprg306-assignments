@@ -36,15 +36,19 @@ function NewItem() {
         <div className="flex items-center space-x-2">
           <button 
             type="button" 
-            onClick={() => setQuantity((prev) => Math.max(1, prev - 1))} 
-            className="w-10 h-10 bg-gray-500 text-white rounded-md">
+            onClick={() => setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : prevQuantity))} 
+            className={`w-12 h-10 flex items-center justify-center text-white rounded-md focus:outline-none ${
+              quantity === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
+            }`}>
             -
           </button>
           <span className="text-lg">{quantity}</span>
           <button 
             type="button" 
-            onClick={() => setQuantity((prev) => Math.min(20, prev + 1))} 
-            className="w-10 h-10 bg-blue-500 text-white rounded-md">
+            onClick={() => setQuantity((prevQuantity) => (prevQuantity < 20 ? prevQuantity + 1 : prevQuantity))} 
+            className={`w-12 h-10 flex items-center justify-center text-white rounded-md focus:outline-none ${
+              quantity === 20 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
+            }`}>
             +
           </button>
         </div>
