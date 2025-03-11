@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { useState } from "react";
 
-function NewItem() {
+function NewItem({ onAddItem }) { 
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
@@ -11,11 +11,20 @@ function NewItem() {
     "Canned Goods", "Dry Goods", "Beverages", "Snacks", "Household", "Other"
   ];
 
+  // Generate unique ID
+  const generateId = () => `${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const item = { name, quantity, category };
-    console.log("New Item Added:", item);
-    alert(`Item: ${name}\nQuantity: ${quantity}\nCategory: ${category}`);
+    
+    const newItem = {
+      id: generateId(), // Use custom ID generator
+      name,
+      quantity,
+      category,
+    };
+
+    onAddItem(newItem);
     setName("");
     setQuantity(1);
     setCategory("produce");
@@ -36,7 +45,7 @@ function NewItem() {
         <div className="flex items-center space-x-2">
           <button 
             type="button" 
-            onClick={() => setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : prevQuantity))} 
+            onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : prev))} 
             className={`w-12 h-10 flex items-center justify-center text-white rounded-md focus:outline-none ${
               quantity === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
             }`}>
@@ -45,7 +54,7 @@ function NewItem() {
           <span className="text-lg">{quantity}</span>
           <button 
             type="button" 
-            onClick={() => setQuantity((prevQuantity) => (prevQuantity < 20 ? prevQuantity + 1 : prevQuantity))} 
+            onClick={() => setQuantity((prev) => (prev < 20 ? prev + 1 : prev))} 
             className={`w-12 h-10 flex items-center justify-center text-white rounded-md focus:outline-none ${
               quantity === 20 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
             }`}>
